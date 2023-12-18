@@ -1,0 +1,24 @@
+pipeline {
+    agent any
+    
+    parameters {
+        booleanParam(name: 'isMysore', defaultValue: true, description: 'Are you from Mysore?')
+    }
+
+    stages {
+        stage('Example Stage') {
+            steps {
+                script {
+                    if (params.isMysore) {
+                        echo "You are from Mysore"
+                        // Add your further steps for Mysore
+                    } else {
+                        echo "You are not from Mysore"
+                        // Add your further steps for other cases
+                    }
+                }
+            }
+        }
+    }
+}
+
